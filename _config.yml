@@ -46,7 +46,7 @@ author:
 
 # Front Matter Defaults
 excerpt_separator: "\n\n"
-permalink: /:categories/:title
+permalink: blog/:year/:title
 defaults:
   - scope:
       path: ""
@@ -60,7 +60,7 @@ atom_feed:
 
 # Analytics
 analytics:
-  provider               : "google-gtag"
+  provider: "google-gtag"
   google:
-    tracking_id          : "G-CRV5P00E06"
-    anonymize_ip         : true
+    tracking_id: "G-CRV5P00E06"
+    anonymize_ip: true
