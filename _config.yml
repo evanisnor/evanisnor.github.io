@@ -1,6 +1,7 @@
 plugins:
 - jekyll-remote-theme
 - jekyll-include-cache
+- jekyll-feed
 github:
   is_project_page: false
 encoding: "utf-8"
@@ -53,10 +54,6 @@ defaults:
     values:
       author_profile: true
       read_time: true
-
-# Feed
-atom_feed:
-  hide: true
 
 # Analytics
 analytics:
