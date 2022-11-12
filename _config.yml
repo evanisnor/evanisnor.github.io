@@ -1,8 +1,59 @@
-remote_theme: pages-themes/minimal@v0.2.0
 plugins:
 - jekyll-remote-theme
+- jekyll-include-cache
 github:
   is_project_page: false
+
+# Theme
+remote_theme: mmistakes/minimal-mistakes@4.24.0
+minimal_mistakes_skin: "dark"
+
+# Header
+locale: "en-CA"
+url: https://evanisnor.com
 title: evanisnor.com
-logo: /assets/images/evan.jpg
-description: <h2>Evan Isnor</h2><p>Nova Scotia, Canada 🇨🇦</p><p>Professional Software Engineer since 2009</p>
+logo: "/assets/images/logo.png"
+name: &name Evan Isnor
+timezone: America/Halifax
+
+# Site Author
+author:
+  name: *name
+  avatar: "/assets/images/evan.jpg"
+  bio: "Professional Software Engineer since 2009. Currently having fun working on Android at Slack."
+  location: "Nova Scotia, Canada 🇨🇦"
+  links:
+    - label: "@evanisnor@androiddev.social"
+      icon: "fab fa-fw fa-mastodon"
+      url: "https://androiddev.social/@evanisnor"
+    - label: "@evanisnor"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://twitter.com/evanisnor"
+    - label: "Code on GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/evanisnor"
+    - label: "Apps on Google Play"
+      icon: "fab fa-fw fa-google-play"
+      url: "https://play.google.com/store/apps/developer?id=evanisnor"
+    - label: "Career on LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/ewisnor"
+    - label: "Photos on 500px"
+      icon: "fab fa-fw fa-500px"
+      url: "https://500px.com/p/ewisnor"
+
+# Front Matter Defaults
+defaults:
+  - values:
+      author_profile: true
+
+# Feed
+atom_feed:
+  hide: true
+
+# Analytics
+analytics:
+  provider               : "google-gtag"
+  google:
+    tracking_id          : "G-CRV5P00E06"
+    anonymize_ip         : true
