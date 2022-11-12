@@ -35,8 +35,7 @@ other as it requires a kind of thoughtful collaboration that avoids judgement,
 criticism, and blame.
 
 > Related Reading:
-> * [Cash Engineering Principles]
-    (https://code.cash.app/cash-engineering-principles)
+> * [Cash Engineering Principles](https://code.cash.app/cash-engineering-principles)
 
 I've been lurking on the internet since the late 90's and I haven't taken the
 time to share my perspective and experiences. Maybe I should start!
