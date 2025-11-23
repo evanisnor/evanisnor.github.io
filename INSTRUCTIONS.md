@@ -30,62 +30,75 @@
 
 - **Bundler versioning**: If the project expects a specific Bundler version, prefer using the same version locally. Example to install a specific bundler version:
 
-  - `gem install bundler -v '2.4.13'`
+  **Overview**
+  - **Purpose**: Quick guide for maintaining dependencies and adding posts for this Jekyll site.
+  - **Note**: Do not edit the generated `_site/` directory — change source files and rebuild.
 
-- **JavaScript / vendor assets**: This repository stores JS assets under `assets/js/` and `assets/vendor/`. There is no npm/yarn config here.
+  **Prerequisites**
+  - **Ruby & rbenv**: Use the project Ruby (`rbenv` recommended). Confirm with `ruby -v` and `rbenv global`.
+  - **Bundler 2+**: This repo requires Bundler 2+. Install a specific Bundler if needed:
 
-  - To update a vendor JS file, replace the file in `assets/js/` or `assets/js/vendor/` and verify the site works.
-  - If you introduce a JS package manager (npm/yarn), add a `package.json` and document how to build assets.
+    - `gem install bundler -v '2.4.13'`
 
-**Building & Testing Locally**
-- **Install prerequisites**: Ensure Ruby and Bundler are installed (macOS: use a Ruby version manager or system Ruby). Then run:
+  - **Homebrew OpenSSL (macOS)**: If you experience SSL errors, install `openssl@3` and point Ruby to it when building Ruby.
 
-  - `bundle install`
+  **Dependencies**
+  - **Install**: `bundle install`
+  - **Update gems**: `bundle update` or `bundle update <gemname>`
+  - **Update Bundler in the lockfile**: If `Gemfile.lock` requires a newer Bundler, run:
 
-- **Build**: `bundle exec jekyll build` — output is placed in `_site/`.
-- **Serve (development)**: `bundle exec jekyll serve` — serves at `http://localhost:4000` by default.
-- **Drafts**: If you use drafts, preview with `bundle exec jekyll serve --drafts` after adding files to `_drafts/`.
+    - `bundle _2.4.13_ update --bundler` (use the version you installed)
 
-**Adding New Posts**
-- **Location & filename**: Create a new Markdown file in `_posts/` named with the date prefix: `YYYY-MM-DD-title.md`.
+  - **Commit**: Commit both `Gemfile` and `Gemfile.lock` together after updates:
 
-  - Example: `_posts/2025-11-23-my-new-post.md`
+    - `git add Gemfile Gemfile.lock`
+    - `git commit -m "chore: update gems"`
 
-- **Minimal front matter**: At minimum include `layout`, `title`, and `date`. Example front matter:
+  **SSL / Remote theme issues (common)**
+  - If Jekyll fails with `certificate verify failed (unable to get certificate CRL)`, two practical fixes:
 
-  ```yaml
+    1) Avoid remote fetches by installing the theme gem locally (preferred):
+
+       - Add `gem "minimal-mistakes-jekyll", "~> 4.24"` to `Gemfile` and replace `remote_theme:` with `theme:` in `_config.yml`.
+       - Run `bundle install` and build normally.
+
+    2) Temporary SSL workaround (diagnostic):
+
+       - Export macOS system certs: `security find-certificate -a -p /Library/Keychains/System.keychain /System/Library/Keychains/SystemRootCertificates.keychain > /tmp/cacert.pem`
+       - `export SSL_CERT_FILE=/tmp/cacert.pem` then run `bundle exec jekyll doctor`.
+
+    3) Robust fix: rebuild Ruby linked to Homebrew OpenSSL:
+
+       - `RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)" rbenv install <version> --force`
+
+  **Build & Preview**
+  - Build: `bundle exec jekyll build` (output in `_site/`)
+  - Serve: `bundle exec jekyll serve` (preview at `http://localhost:4000`)
+  - Drafts: `bundle exec jekyll serve --drafts`
+
+  **Adding a Post**
+  - Create a file in `_posts/` named `YYYY-MM-DD-title.md` (e.g. `_posts/2025-11-23-my-new-post.md`).
+  - Minimal front matter:
+
+    ```yaml
+    ---
+    layout: post
+    title: "My new post"
+    date: 2025-11-23 09:00:00 -0500
+    ---
+    ```
+
+  - Add content below front matter in Markdown. Reference images with site-root paths like `/assets/images/...`.
+  - Preview locally with `bundle exec jekyll serve` and verify the post displays.
+
+  **Publishing**
+  - After verification, commit new posts and any updated `Gemfile`/`Gemfile.lock`, then push and open a PR or merge to `main` per your workflow.
+  - Do not commit `_site/`.
+
+  **Quick Troubleshooting**
+  - `bundle exec jekyll doctor` for diagnostics.
+  - Use `bundle exec jekyll build --verbose` to see build errors.
+  - If SSL or gem conflicts persist, paste the error output and I'll help debug.
+
   ---
-  layout: post
-  title: "My new post"
-  date: 2025-11-23 09:00:00 -0500
-  categories: [blog]
-  tags: [example, jekyll]
-  excerpt: "A short summary of the post."
-  ---
-  ```
-
-  - Make sure the `date` in the front matter corresponds to the filename date (Jekyll uses the filename date to set the post permalink unless overridden).
-
-- **Content**: Write content below the front matter in Markdown. Use relative paths to images (see next bullet).
-- **Images and assets**: Add images to `assets/images/` or a subfolder and reference them with a site-root-relative path, e.g. `/assets/images/my-image.jpg`.
-- **Preview**: After adding the file, run `bundle exec jekyll serve` and go to `http://localhost:4000` to confirm the post appears and renders correctly.
-
-**Publishing / Deployment**
-- **GitHub Pages**: This site appears to be hosted via GitHub Pages. After verifying locally, push your branch and open a PR or push to `main` depending on your workflow.
-- **Commit checklist**: When publishing a post or dependency change, typically commit:
-
-  - The new post (e.g., `_posts/2025-11-23-my-new-post.md`)
-  - Any updated assets you intentionally changed
-  - `Gemfile` and `Gemfile.lock` if dependencies changed
-
-- **Don't commit**: The generated `_site/` contents should not be committed (unless you have a specific reason).
-
-**Notes & Tips**
-- **Backups**: Before large dependency updates, create a branch so you can revert easily if a gem update breaks the build.
-- **Troubleshooting**: If the site fails to build after updating gems:
-
-  - Check the error message and stack trace from `bundle exec jekyll build`.
-  - Try `bundle exec jekyll build --verbose` for more info.
-  - Consider locking a gem to a previous version in `Gemfile` if an incompatibility is encountered.
-
-- **Style & templates**: Site templates and includes live in the repository root and `_includes/`. Update those to change layout or header fragments.
+  Concise maintenance instructions for this repository.
