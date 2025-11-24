@@ -1,5 +1,4 @@
 plugins:
-- jekyll-include-cache
 - jekyll-feed
 github:
   is_project_page: false
