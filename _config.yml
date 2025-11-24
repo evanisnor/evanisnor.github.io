@@ -1,6 +1,7 @@
 plugins:
 - jekyll-include-cache
 - jekyll-feed
+repository: evanisnor/evanisnor.github.io
 github:
   is_project_page: false
 encoding: "utf-8"
