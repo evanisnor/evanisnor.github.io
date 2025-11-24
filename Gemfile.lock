@@ -286,7 +286,6 @@ DEPENDENCIES
   github-pages
   jekyll
   jekyll-feed
-  jekyll-include-cache
   minimal-mistakes-jekyll (~> 4.24)
   webrick (~> 1.7)
 
