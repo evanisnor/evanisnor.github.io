@@ -38,6 +38,11 @@ Here are some of the things it can do:
 - [Text Encoder](https://textytools.dev/text-encoder) — encode/decode Base64, URL-encoding, hex, and other formats, plus hash utilities.
 - [JWT Decoder](https://textytools.dev/jwt-decoder) — decode and inspect JSON Web Tokens, with validation of standard claims.
 
+Some of these tools can even interact! For example:
+* _JSON Wizard_ allows you to convert your output to CSV by sending it to _CSV / JSON Converter_
+* _CSV / JSON Converter_ will auto-detect your CSV and convert it to JSON, which you can then open with _JSON Wizard_
+* Decoded JWTs in _JWT Decoder_ can be opened with _JSON Wizard_ as well
+
 I'd love for you to check it out at [textytools.dev](https://textytools.dev). Let me know what you think!
 
 If you find any bugs, missing features, or want a tool added, please use the **"Suggest a Tool"** link on the site to send feedback or ideas.
