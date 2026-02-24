@@ -13,8 +13,6 @@ tags:
   - product-management
 ---
 
-# Beyond Vibe-coding: Spec-Driven Development
-
 Coding agents have progressed very quickly over these last few years to the point where it can feel like a superpower. We now have the ability to use plain language and have an LLM produce code that perhaps you would never have thought to write yourself, perhaps in a language you don't actually know. Moreover, it can produce an entire app or video game from a single sentence and you don't even have to _think_ about code. You've vibed your way to impressing your friends and family!
 
 Inevitably you'll want to keep prompting to add more and more features. Your initial prompt satisfied an idea, but compelling software needs to solve real problems and that requires a lot more code. Eventually after prompting again and again you'll find that the agent struggles to add new functionality without breaking something else. Your project turns into a shape-shifting nightmare that consumes tokens at an increasingly expensive rate. Why does this happen?
