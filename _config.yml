@@ -22,21 +22,12 @@ timezone: America/Halifax
 author:
   name: *name
   avatar: "/assets/images/evan.jpg"
-  bio: "Professional Software Engineer since 2009. Currently having fun working on Android at Slack."
+  bio: "Staff Android Engineer at Slack"
   location: "Nova Scotia, Canada 🇨🇦"
   links:
-    - label: "@evanisnor@androiddev.social"
-      icon: "fab fa-fw fa-mastodon"
-      url: "https://androiddev.social/@evanisnor"
-    - label: "@evanisnor"
-      icon: "fab fa-fw fa-twitter"
-      url: "https://twitter.com/evanisnor"
     - label: "Code on GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/evanisnor"
-    - label: "Apps on Google Play"
-      icon: "fab fa-fw fa-google-play"
-      url: "https://play.google.com/store/apps/developer?id=evanisnor"
     - label: "Career on LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/ewisnor"
