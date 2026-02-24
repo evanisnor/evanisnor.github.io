@@ -36,18 +36,18 @@ I'm sure Waterfall has worked on many projects. Despite its propensity to define
 Around the same time (circa 2010-ish) the internet was buzzing with excitement over _Ruby-on-Rails_ and that community had championed a strategy called "Behaviour-driven Development", affectionately dubbed "BDD". Write high-level specs in human language first within a framework like _RSpec_ or _Cucumber_ and write fixtures to bridge these instructions with your test code. It's like TDD (Test-driven Development) but at a higher abstraction level. Write code until the specs are passing, and you'll end up with exactly what you set out to build insofar as your specs are concerned. Anyone can read and understand them because they relate to how users will find value in plain language. A Product Manager or Sales person could even write them as needed!
 
 ```gherkin
-Feature: Is it Friday yet?
-  Everybody wants to know when it's Friday.
+Feature: Is it Wednesday yet?
+  Everybody wants to know when it's Wednesday.
 
-  Scenario: Sunday isn't Friday
-    Given today is Sunday
-    When I ask whether it's Friday yet
+  Scenario: Tuesday isn't Wednesday
+    Given today is Tuesday 
+    When I ask whether it's Wednesday yet
     Then I should be told "Nope"
 
-  Scenario: Friday is indeed Friday
-    Given today is Friday
-    When I ask whether it's Friday yet
-    Then I should be told "Yay"
+  Scenario: Wednesday is indeed Wednesday
+    Given today is Wednesday
+    When I ask whether it's Wednesday yet
+    Then I should be told "It is Wednesday my dudes"
 ```
 
 ## The Coding Agent
