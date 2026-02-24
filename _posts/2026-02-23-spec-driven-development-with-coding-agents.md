@@ -50,7 +50,7 @@ Feature: Is it Friday yet?
     Then I should be told "Yay"
 ```
 
-## Enter the Coding Agent
+## The Coding Agent
 
 In this modern era of software development, being able to generate millions of lines of code in a single day is both amazing **and** the greatest footgun a programmer can experience. No longer are we bound by pesky limitations like _typing_, and we have found a new appreciation for how quickly we can create a steaming mountain of unmaintainable shit.
 
@@ -78,7 +78,9 @@ First you'll need to think about your project in high-level yet practical terms.
 
 Prompt your agent with as much information about the problem as you can, and ask it to compile a Product Specification document. If you're using Claude Code, "plan mode" can help with this. Let's build an app!
 
-> I need to build a mobile app that helps people track and optimize their exercise routines. For now, let's focus on weight lifting. I want to help people build an exercise schedule for achieving their muscle growth goals. It's important for them to be able to work on specific muscle groups each day to maximize gains, and for those choices to fit optimally in their overall schedule. Each exercise should provide instructions on proper form and safety. Allow users to track their progress and see plots that encourage them to keep pushing. Let's call the app "MegaGainz". Build a one-page product spec that describes this app. Let me review it before continuing.
+```
+I need to build a mobile app that helps people track and optimize their exercise routines. For now, let's focus on weight lifting. I want to help people build an exercise schedule for achieving their muscle growth goals. It's important for them to be able to work on specific muscle groups each day to maximize gains, and for those choices to fit optimally in their overall schedule. Each exercise should provide instructions on proper form and safety. Allow users to track their progress and see plots that encourage them to keep pushing. Let's call the app "MegaGainz". Build a one-page product spec that describes this app. Let me review it before continuing.
+```
 
 Review the output and make changes until it fits your vision. The agent filled in the blanks and probably made a few assumptions along the way. You'll want to take the time to read this carefully and apply any course corrections now, because the language of this document will have a ripple effect throughout the rest of the development process.
 
@@ -88,18 +90,22 @@ While the product spec describes what you need to build at a high level, it does
 
 It helps to know up front which technologies you'd like to use. Which platforms, languages, and databases will be used? Ask your agent about which technologies are most appropriate for solving the problem to help you decide.
 
-> Which technologies are most appropriate for building MegaGainz?
+```
+Which technologies are most appropriate for building MegaGainz?
+```
 
 Writing an entire requirements document by hand would be about as fun as swallowing a sea urchin. Thankfully you don't have to because you have access to an LLM!
 
-> The product spec has been updated and we are ready to build a structured Requirements document from it.
-> * Each requirement is a brief sentence that represents a specific concrete deliverable within the bounds of the scope of the project.
-> * Requirements must be numbered and grouped by functional area where related problems are being solved.
-> * Include non-functional requirements such as robust account security, performance, cost, stability goals. We need to follow OWASP best practices and define achievable SLOs.
-> * Include non-requirements to specify what should NOT be done
-> * Include User Personas that describe the problems being solved for specific kinds of fictional people
-> * Include requirements about the tech stack that will be used: iOS (Swift), Android (Kotlin), with Golang and Postgres on the backend.
-> * List any assumptions, constraints, dependencies, and risks that might apply
+```
+The product spec has been updated and we are ready to build a structured Requirements document from it.
+* Each requirement is a brief sentence that represents a specific concrete deliverable within the bounds of the scope of the project.
+* Requirements must be numbered and grouped by functional area where related problems are being solved.
+* Include non-functional requirements such as robust account security, performance, cost, stability goals. We need to follow OWASP best practices and define achievable SLOs.
+* Include non-requirements to specify what should NOT be done
+* Include User Personas that describe the problems being solved for specific kinds of fictional people
+* Include requirements about the tech stack that will be used: iOS (Swift), Android (Kotlin), with Golang and Postgres on the backend.
+* List any assumptions, constraints, dependencies, and risks that might apply
+```
 
 Again, review the output and make changes until it suits you. You will notice by this point that each of these steps results in progressively larger and more detailed documents. The aim here is to generate as much detail as possible while giving ourselves the opportunity to course correct. If something isn't right on a small scale, you might be able to modify the document by hand. For larger alignment issues you'll need to keep iterating with the agent until it gets closer and closer to what you need. This may take time, but it's worth it. This is the foundation needed to hold the agent accountable for its output.
 
@@ -111,7 +117,9 @@ Assuming you build and launch a successful product you may find yourself in a si
 
 Once you have your requirements nailed (or refined), the next step is to come up with a design for the system itself. This is another important iteration that will help fill in the gaps of your vision with concrete details. Defining how the system will function in service of the requirements is crucial to getting this right.
 
-> Come up with a system design that will best support the goals of the project according to the Product Spec and Requirements documents. Do not include any code, instead use technical language to describe how the system will work and how its components will function. Use mermaid diagrams as visual aids to describe architecture, data flow, and state.
+```
+Come up with a system design that will best support the goals of the project according to the Product Spec and Requirements documents. Do not include any code, instead use technical language to describe how the system will work and how its components will function. Use mermaid diagrams as visual aids to describe architecture, data flow, and state.
+```
 
 It's quite important to tell the agent to avoid writing code here. It _really_ wants to! You don't want this now because you haven't described your coding conventions and styles, which is something best saved for a later step in the process. Omitting this instruction from your prompt will result in a plethora of disconnected code snippets that will pollute your codebase during the development stage and may confuse your agent. At this point we're only interested in understanding how the requirements can be manifested through a **systems perspective**.
 
@@ -121,16 +129,20 @@ Review the system architecture and make iterations as necessary with the agent. 
 
 At this point we've generated multiple documents and possibly thousands of lines of text, however so far you have only detailed the **what** and the **why** of the project and have only scratched the surface of the **how** with the system design. To effectively translate this context into code over multiple agent sessions **we're going to need, at minimum, a list of tasks**. For smaller projects a mere list of tasks will probably suffice.
 
-> Use the product spec, requirements, and system design documents to build a table of tasks that we can use to track implementation progress. Each task must have a unique identifier `T-<NUMBER>`, a description, a priority, a status, and trace directly to a requirement.
+```
+Use the product spec, requirements, and system design documents to build a table of tasks that we can use to track implementation progress. Each task must have a unique identifier `T-<NUMBER>`, a description, a priority, a status, and trace directly to a requirement.
+```
 
 For larger projects it may help to provide more structure. You can do this however you like! As for me, I love a good User Story with acceptance criteria and sub-tasks.
 
-> The product spec, requirements, and system design contain all of the information we need to build a comprehensive plan for implementation. Read those documents and build the plan with the following approach that organizes work into phases:
-> * Phases will be numbered starting at Phase 1, encapsulating the smallest deliverable functionality that will still be valuable to users.
-> * Each phase will be comprised of User Stories that solve a specific usability problem for the user. Each User Story must provide helpful descriptions about why the user needs to solve this problem, the value it provides, and a list of Acceptance Criteria that can be used for validation. User stories must have a title and an identifier in the format of `<PHASE_NUMBER>-US-<STORY_NUMBER>` where `PHASE_NUMBER` is a single digit matching its parent phase, and the `STORY_NUMBER` is a sequential integer padded with four zeros and unique to this user story within its phase. Each User Story must be directly related to one or more requirements that need to be referenced. Also include a list of other User Stories that a given User Story depends on before it can begin.
-> * Each User Story must have a list of Tasks that represent atomic actions for implementation that, when all are complete, satisfy the acceptance criteria of the story. Each task must have a name that concisely describes what is being built, a detailed description of how it will be built, a priority as an integer between the numbers of 0 and 9, and be uniquely identifiable with an ID in the format of `<PHASE_NUMBER>-US-<STORY_NUMBER>-T<TASK_NUMBER>` where `TASK_NUMBER` is a sequential integer padded with four zeros and unique to this task within its user story.
+```
+The product spec, requirements, and system design contain all of the information we need to build a comprehensive plan for implementation. Read those documents and build the plan with the following approach that organizes work into phases:
+* Phases will be numbered starting at Phase 1, encapsulating the smallest deliverable functionality that will still be valuable to users.
+* Each phase will be comprised of User Stories that solve a specific usability problem for the user. Each User Story must provide helpful descriptions about why the user needs to solve this problem, the value it provides, and a list of Acceptance Criteria that can be used for validation. User stories must have a title and an identifier in the format of `<PHASE_NUMBER>-US-<STORY_NUMBER>` where `PHASE_NUMBER` is a single digit matching its parent phase, and the `STORY_NUMBER` is a sequential integer padded with four zeros and unique to this user story within its phase. Each User Story must be directly related to one or more requirements that need to be referenced. Also include a list of other User Stories that a given User Story depends on before it can begin.
+* Each User Story must have a list of Tasks that represent atomic actions for implementation that, when all are complete, satisfy the acceptance criteria of the story. Each task must have a name that concisely describes what is being built, a detailed description of how it will be built, a priority as an integer between the numbers of 0 and 9, and be uniquely identifiable with an ID in the format of `<PHASE_NUMBER>-US-<STORY_NUMBER>-T<TASK_NUMBER>` where `TASK_NUMBER` is a sequential integer padded with four zeros and unique to this task within its user story.
+```
 
-This prompt specifies a comprehensive project management structure with hierarchy, dependencies, rich descriptions, and prioritized tasks. Another way to do this would be to leverage an MCP plugin for a project management service such as _Jira_ or _Linear_ rather than define your own structure. Use what is available to you and what suits your needs.
+This prompt specifies a comprehensive project management structure with hierarchy, dependencies, rich descriptions, and prioritized tasks. Another way to do this would be to leverage an MCP plugin for a project management service such as _Jira_ or _Linear_ rather than define your own structure. Use what is available to you, but know that markdown files work surprisingly well for this if that's all you need.
 
 In any case it should be made clear to the agent that the tasks must be traceable directly to requirements. Combined with our next anchor (_Configuring the Agent_), this is going to help reduce the amount of hallucination produced.
 
