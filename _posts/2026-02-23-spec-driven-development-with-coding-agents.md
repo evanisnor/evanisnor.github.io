@@ -186,7 +186,7 @@ To prevent Bad Things™ from happening to you and your loved ones, consider tun
 
 ## Conclusion
 
-Full disclosure: I cannot say with confidence that using coding agents to build software even with well-defined structure and guardrails will produce functional, usable, or particularly valuable software. So far, as of early 2026, I don't think anyone can say that save for a small cohort of people with large amounts of capital to spend on tokens and a lot of luck.
+Full disclosure, I cannot say with confidence that using coding agents autonomously to build large projects even with well-defined structure and guardrails will produce functional, usable, or particularly valuable software. So far, as of early 2026, I don't think anyone can say that save for a small cohort of people with large amounts of capital to spend on tokens and a lot of luck.
 
 Coding agents have come a long way but they are not all-powerful hyper-reasoning magic machines that will make you rich with a few prompts and I don't think that will ever be true. I do think, however, that if these outcomes are possible to achieve they will require Spec-driven Development or something that resembles it.
 
