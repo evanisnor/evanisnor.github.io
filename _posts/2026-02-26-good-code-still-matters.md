@@ -14,7 +14,9 @@ tags:
 
 As the desire for faster development and quicker time-to-market continues to grow, the importance of good code remains as crucial as ever. Coding agents are being used to write a significant amount of code without enough context which can lead to bugs, regressions, vulnerabilities, and higher maintenance cost including increased token spend. 
 
-Why should it matter if the machine will just figure it out? Machines can't infer intent and don't handle ambiguity well. There is a very clear desire among software development teams to leverage coding agents to speed up development, but without detailed prompts and useful context your codebase will very quickly become filled to the brim with slop and features will break. Going all-in on coding agents without a strategy built on collaboration, specificity, and a bit of caution _will_ make your software worse, not better. Good code is not just about aesthetics; it's about creating software that is reliable, scalable, and less costly to maintain. In the age of the coding agent it's more important than ever for teams to decide and record what this looks like to them to avoid becoming buried in mountains of buggy, unmaintainable code.
+Why should it matter if the machine will just figure it out? Machines can't infer intent and don't handle ambiguity well. There is a very clear desire among software development teams to leverage coding agents to speed up development, but without detailed prompts and useful context your codebase will very quickly become filled to the brim with slop and features will break. Going all-in on coding agents without a strategy built on collaboration, specificity, and a bit of caution _will_ make your software worse, not better.
+
+Good code is not just about aesthetics; it's about creating software that is reliable, scalable, and less costly to maintain. In the age of the coding agent it's more important than ever for teams to decide and record what this looks like to them to avoid becoming buried in mountains of buggy, unmaintainable code.
 
 ## Good Code in a Group Setting
 
