@@ -104,9 +104,10 @@ Skills are markdown files that serve as knowledge repositories for your coding a
 
 The metadata at the top is read by the agent at the start of a session, which prevents it from loading the whole thing prematurely into context. Instead, it will be invoked automatically when relevant. This is called **Progressive Disclosure**. The coding agent always knows which skills are available and can use them efficiently.
 
-Beyond code review standards, Skills are appropriate for reference materials, complex workflows, detailed examples, and even executing scripts. 
+A couple of things to consider to help you write strong Skills:
 
-Resist the urge to create Skills for every minor variation of these things and focus on reusable patterns. Creating too many similar Skills increases the maintenance burden and it isn't necessary.
+* Skills are appropriate for code review standards, reference materials, complex workflows, detailed examples, and even executing scripts. 
+* Resist the urge to create Skills for every minor variation of these things and focus on reusable patterns. Creating too many similar Skills increases the maintenance burden and it isn't necessary.
 
 ### Sub-agents
 
