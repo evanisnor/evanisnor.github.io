@@ -167,4 +167,4 @@ These are interesting times, and maybe a little bit scary. At the very least I h
 ## Further Reading
 
 [^1]: Kent Beck and Cynthia Andres, _Extreme Programming Explained: Embrace Change_, 2nd ed. (Boston: Addison-Wesley, 2005)
-[^2]: "Agent Skills", Anthropic PBC, https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview
+[^2]: "[Agent Skills](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)", Anthropic PBC, https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview
