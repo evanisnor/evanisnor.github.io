@@ -2,8 +2,10 @@
 ---
 @charset "utf-8";
 
+$skin: "dark";
 $doc-font-size: 14; /* default is 16 */
 
+@import "minimal-mistakes/skins/dark";
 @import "minimal-mistakes";
 
 pre, pre code {
