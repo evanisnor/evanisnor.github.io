@@ -1,5 +1,5 @@
 ---
-title: "Good Quality Code Still Matters"
+title: "Good Code Still Matters"
 date: 2026-02-26
 layout: single
 tags:
