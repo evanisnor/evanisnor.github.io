@@ -146,6 +146,8 @@ GEM
       octokit (>= 4, < 7, != 4.4.0)
     jekyll-include-cache (0.2.1)
       jekyll (>= 3.7, < 5.0)
+    jekyll-include_snippet (0.2.0)
+      liquid (>= 3.0)
     jekyll-mentions (1.6.0)
       html-pipeline (~> 2.3)
       jekyll (>= 3.7, < 5.0)
@@ -295,6 +297,7 @@ DEPENDENCIES
   jekyll
   jekyll-feed
   jekyll-include-cache
+  jekyll-include_snippet
   minimal-mistakes-jekyll (~> 4.24)
   webrick (~> 1.7)
 
