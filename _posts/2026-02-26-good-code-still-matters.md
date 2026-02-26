@@ -12,17 +12,13 @@ tags:
   - product-management
 ---
 
-As the desire for faster development and quicker time-to-market continues to grow, the importance of good quality code remains as crucial as ever. In an era where AI and coding agents are becoming increasingly prevalent, it's essential to remember that the foundation of any successful software project is still rooted in well-written, maintainable code.
+As the desire for faster development and quicker time-to-market continues to grow, the importance of good code remains as crucial as ever. Coding agents are being used to write a significant amount of code without enough context which can lead to bugs, regressions, vulnerabilities, and higher maintenance cost including increased token spend. 
 
-Why should it matter? Good quality code is not just about aesthetics; it's about creating software that is reliable, scalable, and easy to maintain. It reduces the likelihood of bugs, regressions, vulnerabilities, and reduces the cost of mitigating those issues when they do arise. There are also many collaborative benefits to writing good quality code, but we are rapidly moving toward a future where coding agents will be responsible for writing a significant amount of code that humans may not even read. So, you may ask, why does this matter if the machine will just figure it out?
-
-When it comes to coding agents all of this still matters and it may even matter more now as the enterprise continues to adopt this technology at scale. There is a very clear desire among software development teams to leverage coding agents to speed up development, but without detailed prompts and useful context your codebase will very quickly become filled to the brim with slop. Additionally, it is quite common for large projects built by many teams and hundreds of people through the course of many years to have mountains of technical debt, inconsistencies, and a deep well of bugs. Going all-in on coding agents in a codebase such as this without a strategy built on caution, collaboration, and specificity _will_ make the situation worse, not better.
-
-How can we take advantage of the speed of coding agents and avoid pouring gasoline on the fire?
+Why should it matter if the machine will just figure it out? Machines can't infer intent and don't handle ambiguity well. There is a very clear desire among software development teams to leverage coding agents to speed up development, but without detailed prompts and useful context your codebase will very quickly become filled to the brim with slop and features will break. Going all-in on coding agents without a strategy built on collaboration, specificity, and a bit of caution _will_ make your software worse, not better. Good code is not just about aesthetics; it's about creating software that is reliable, scalable, and less costly to maintain. In the age of the coding agent it's more important than ever for teams to decide and record what this looks like to them to avoid becoming buried in mountains of buggy, unmaintainable code.
 
 ## Good Code in a Group Setting
 
-There is much to be said for the subjectivity of good code, especially when working in diverse teams. Not everyone will agree on all of the same practices and finer details of syntax golf, but it is important that teams develop a mutual vision of how the codebase should be structured. It's even more important if you expect coding agents to do everyone's typing for them and produce something passable.
+There is much to be said for the subjectivity of good code, especially when working in diverse teams. Not everyone will agree on all of the same practices and finer details of syntax golf, but it is important that teams develop a mutual vision of how the codebase should be structured and have it written down. It's even more important if you expect coding agents to do everyone's typing for them and produce something passable.
 
 In my experience I have found success in taking some inspiration from Kent Beck's fundamentally excellent book _Extreme Programming Explained_ [^1] by having the team define values, principles, and practices. These are the foundation from which good software arises, and good software starts with good collaboration.
 
@@ -64,7 +60,7 @@ PRINCIPLES
 * Unit tests should be written
 * State classes should not contain any business logic
 * Code review should be thorough, constructive, and encouraging
-* Errors should always be handled to promote stability, debugability, and a helpful user experience
+* Errors should always be handled to promote stability, debuggability, and a helpful user experience
 * Inheritance should be used sparingly if needed when defining state models, and not for sharing behavior between classes
 ```
 
@@ -73,7 +69,7 @@ PRINCIPLES
 ```
 PRACTICES
 * Write concise module READMEs that explain why the code exists and how to use it
-* Add docstrings that state intent, side-effects, and important invariants
+* Add docstrings that state intent, side effects, and important invariants
 * Enforce a consistent naming convention via linters and pre-commit hooks
 * Keep state classes as plain data containers; put business logic in service functions/classes
 * Prefer composition and explicit interfaces over inheritance for sharing behavior
@@ -93,7 +89,7 @@ These ideas also happen to translate very well into instructions for a forgetful
 
 ## Good Code from an Agent
 
-One of the most effective ways to improve the quality of output from a coding agent is to build a clear system of custom _Skills_ and _Sub-Agents_ [^2]. Coding agents work best when given domain-specific expertise delivered through structured, reusable instructions rather than ad-hoc prompting.
+One of the most effective ways to improve the quality of output from a coding agent is to build a clear system of custom _Skills_ and _Sub-Agents_ [^2]. Coding agents work best when given domain-specific expertise and consistent instructions delivered through structured, reusable documents rather than ad-hoc prompting.
 
 Most of my own experience with coding agents comes from working with _Claude Code_ which has pioneered many of the tools and methods that allow us to improve LLM performance systematically. I can only accurately speak to working with _Claude_, however, Skills and Sub-Agents are fast becoming standards across the board.
 
@@ -124,7 +120,7 @@ Sub-agents are specialized agent instances that have particular Skills loaded an
 Beyond the example of a code reviewer, Sub-agents are well-suited for a number of workflow automations such as planning, implementation, testing, deployment, and probably anything else you want to delegate to the agent.
 
 Unlike skills, Sub-agents are invoked through human interaction for which there are three main triggers:
-* Direct Task Assignment (ie: "Perform this task...")
+* Direct Task Assignment (i.e: "Perform this task...")
 * Context-Triggered Activation (on mention of keywords)
 * Workflow Handoffs (triggered by other sub-agents)
 
@@ -143,7 +139,7 @@ A good way to mentally separate the two would be to consider that Skills are for
 
 ## Progress and Caution
 
-This could mark a significant tooling change for your team, and as such I recommend going about it slowly and systematically. Start small by using one or two skills before expanding into new and exciting territory. Validate outcomes and measure impact so you can refine how your skills and agents produce output that align with your team's vision. Ensure team members are on-board with this new transition and understand how to use Skills and Sub-agents to their advantage. Open the door to feedback and keep iterating.
+This could mark a significant tooling change for your team, and as such I recommend going about it slowly and systematically. Start small by using one or two skills before expanding into new and exciting territory. Validate outcomes and measure impact so you can refine how your skills and agents produce output that align with your team's vision. Ensure team members are on board with this new transition and understand how to use Skills and Sub-agents to their advantage. Open the door to feedback and keep iterating.
 
 Maintaining oversight over agent behavior is incredibly important because agents cannot be safely used as a replacement for human judgement when it comes to critical decisions. Where necessary, establish a pattern of checkpoints with agents to bring a human into the loop. Make sure the agent is instructed to stop and wait for human intervention in places where you don't trust it, regardless of its confidence.
 
@@ -153,7 +149,7 @@ For the same reason why you should consider limiting which websites the agent ca
 
 ## Conclusion
 
-I think what we have at our disposal with the latest coding agents has the potential to make our everyday lives as software engineers a lot easier, but it needs to be executed with a well-formed strategy and a healthy dose of caution. There is significant risk in allowing numerous contributors dump thousands of lines of inconsistent slop into your codebase, and the best way to combat that would be to build a series of Skills and Sub-agents that reflect your values, principles, and practices. 
+I think what we have at our disposal with the latest coding agents has the potential to make our everyday lives as software engineers a lot easier, but it needs to be executed with a well-formed strategy and a healthy dose of caution. There is significant risk in allowing numerous contributors to dump thousands of lines of inconsistent slop into your codebase, and a good way to combat that would be to build a series of Skills and Sub-agents that reflect your values, principles, and practices.
 
 Building systems like these collaboratively and with intent feels to me like it could define what the future looks like for the software industry. It has the potential to fundamentally change how we've been doing our jobs for decades now. Perhaps our roles will be hoisted up by another abstraction layer; no longer writing code, but orchestrating and refining layers of automation to meet desired outcomes through markdown files.
 
