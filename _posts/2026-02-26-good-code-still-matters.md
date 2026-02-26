@@ -95,7 +95,11 @@ Most of my own experience with coding agents comes from working with _Claude Cod
 
 ### Skills
 
-Skills are markdown files that serve as knowledge repositories for your coding agent and can be used to package your team's values, principles, and practices (among many other things) into reusable instructions. Instead of repeatedly explaining your standards in every conversation, you can create Skills that embody them and can be useful across many different use cases. Here's one that describes standards for constructive code reviews:
+Skills are markdown files that serve as knowledge repositories for your coding agent and can be used to package your team's values, principles, and practices (among many other things) into reusable instructions. Instead of repeatedly explaining your standards in every conversation, you can create Skills that embody them and can be useful across many different use cases. Here's one that describes standards for constructive code reviews, starting with a prompt that can be used to generate it:
+
+```
+Create a Claude Code skill document for code reviews based on our team's standards in CODING_BEST_PRACTICES.md. It should cover evaluation criteria and include a review checklist.
+```
 
 {% capture code_review_standards %}
 {% include snippets/code-review-standards.md %}
@@ -112,6 +116,10 @@ A couple of things to consider to help you write strong Skills:
 ### Sub-agents
 
 Sub-agents are specialized agent instances that have particular Skills loaded and follow a structured workflow to accomplish tasks. They act as domain specialists that can be invoked as needed and load only relevant information as context. The following agent is designed to leverage our `code-review-standards` skill to perform a thorough code review workflow step-by-step and leave constructive feedback. It also contains templates to be used when it comments on a Pull Request!
+
+```
+Create a Claude Code sub-agent document for conducting code reviews. It should use the code-review-standards skill, follow a step-by-step workflow (understand the change, review structure, apply standards, detect issues, generate feedback), and include comment templates for both minor improvements and significant issues. Base the standards and feedback patterns on CODING_BEST_PRACTICES.md.
+```
 
 {% capture code_review_agent %}
 {% include snippets/code-review-agent.md %}
