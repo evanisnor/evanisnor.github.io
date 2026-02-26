@@ -85,7 +85,7 @@ PRACTICES
 
 Exploring these ideas together in this forum ought to give everyone an opportunity to work out some key differences in opinion and come to a mutually beneficial understanding across many topics.
 
-These ideas also happen to translate very well into instructions for a forgetful text-generating probability machine!
+These ideas also happen to translate very well into instructions for a forgetful text-generating probability machine! Compile them into a shared document such as `CODING_BEST_PRACTICES.md` and commit it to your repository so it can be referenced in your prompts.
 
 ## Good Code from an Agent
 
