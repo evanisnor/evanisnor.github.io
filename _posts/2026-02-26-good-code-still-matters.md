@@ -136,10 +136,10 @@ A good way to mentally separate the two would be to consider that Skills are for
 
 | Skill | Sub-agent |
 | --- | --- |
-| * Standards and criteria | * Task orchestration |
-| * General workflows | * Output templates |
-| * Reference material | * Which skills need to be used |
-| * Evaluation frameworks | * Context-specific processes |
+| Standards and criteria | Task orchestration |
+| General workflows | Output templates |
+| Reference material | Which skills need to be used |
+| Evaluation frameworks | Context-specific processes |
 
 ## Progress and Caution
 
