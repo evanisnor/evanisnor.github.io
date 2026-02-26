@@ -101,9 +101,10 @@ Most of my own experience with coding agents comes from working with _Claude Cod
 
 Skills are markdown files that serve as knowledge repositories for your coding agent and can be used to package your team's values, principles, and practices (among many other things) into reusable instructions. Instead of repeatedly explaining your standards in every conversation, you can create Skills that embody them and can be useful across many different use cases. Here's one that describes standards for constructive code reviews:
 
-```
+{% capture code_review_standards %}
 {% include snippets/code-review-standards.md %}
-```
+{% endcapture %}
+{% include expandable-code-block.html content=code_review_standards lines=10 %}
 
 The metadata at the top is read by the agent at the start of a session, which prevents it from loading the whole thing prematurely into context. Instead, it will be invoked automatically when relevant. This is called **Progressive Disclosure**. The coding agent always knows which skills are available and can use them efficiently.
 
@@ -115,9 +116,10 @@ Resist the urge to create Skills for every minor variation of these things and f
 
 Sub-agents are specialized agent instances that have particular Skills loaded and follow a structured workflow to accomplish tasks. They act as domain specialists that can be invoked as needed and load only relevant information as context. The following agent is designed to leverage our `code-review-standards` skill to perform a thorough code review workflow step-by-step and leave constructive feedback. It also contains templates to be used when it comments on a Pull Request!
 
-```
+{% capture code_review_agent %}
 {% include snippets/code-review-agent.md %}
-```
+{% endcapture %}
+{% include expandable-code-block.html content=code_review_agent lines=10 %}
 
 Beyond the example of a code reviewer, Sub-agents are well-suited for a number of workflow automations such as planning, implementation, testing, deployment, and probably anything else you want to delegate to the agent.
 

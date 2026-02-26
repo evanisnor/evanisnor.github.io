@@ -7,3 +7,69 @@
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/images/browserconfig.xml">
 <meta name="theme-color" content="#ffffff">
+
+<script>
+	document.addEventListener("DOMContentLoaded", function() {
+		var expandableBlocks = document.querySelectorAll(".js-expandable-code");
+
+		expandableBlocks.forEach(function(block) {
+			var pre = block.querySelector("pre");
+			var code = block.querySelector("code");
+			var toggleButton = block.querySelector(".expandable-code__toggle");
+
+			if (!pre || !code || !toggleButton) {
+				return;
+			}
+
+			var collapsedLines = parseInt(block.dataset.collapsedLines || "10", 10);
+			var codeStyles = window.getComputedStyle(code);
+			var lineHeight = parseFloat(codeStyles.lineHeight);
+
+			if (Number.isNaN(lineHeight)) {
+				var fontSize = parseFloat(codeStyles.fontSize) || 16;
+				lineHeight = fontSize * 1.5;
+			}
+
+			var preStyles = window.getComputedStyle(pre);
+			var paddingTop = parseFloat(preStyles.paddingTop) || 0;
+			var paddingBottom = parseFloat(preStyles.paddingBottom) || 0;
+			var collapsedHeight = (lineHeight * collapsedLines) + paddingTop + paddingBottom;
+			var codeText = code.textContent.replace(/\n+$/, "");
+			var totalLines = codeText ? codeText.split("\n").length : 0;
+
+			if (totalLines <= collapsedLines) {
+				toggleButton.style.display = "none";
+				return;
+			}
+
+			var isExpanded = false;
+
+			var applyCollapsedState = function() {
+				pre.style.maxHeight = collapsedHeight + "px";
+				block.classList.remove("is-expanded");
+				toggleButton.textContent = "Show more";
+				toggleButton.setAttribute("aria-expanded", "false");
+			};
+
+			var applyExpandedState = function() {
+				pre.style.maxHeight = pre.scrollHeight + "px";
+				block.classList.add("is-expanded");
+				toggleButton.textContent = "Show less";
+				toggleButton.setAttribute("aria-expanded", "true");
+			};
+
+			applyCollapsedState();
+
+			toggleButton.addEventListener("click", function() {
+				isExpanded = !isExpanded;
+
+				if (isExpanded) {
+					applyExpandedState();
+					return;
+				}
+
+				applyCollapsedState();
+			});
+		});
+	});
+</script>

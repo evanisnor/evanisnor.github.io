@@ -1,0 +1,10 @@
+<div class="expandable-code js-expandable-code" data-collapsed-lines="{{ include.lines | default: 10 }}">
+  <div class="language-plaintext highlighter-rouge">
+    <div class="highlight">
+    <pre class="highlight"><code>{{ include.content | strip | escape }}</code></pre>
+    </div>
+  </div>
+  <div class="expandable-code__actions">
+    <button type="button" class="btn btn--primary btn--small expandable-code__toggle" aria-expanded="false">Show more</button>
+  </div>
+</div>

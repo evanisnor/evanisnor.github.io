@@ -10,3 +10,17 @@ pre, pre code {
   white-space: pre-wrap;
   word-break: break-word;
 }
+
+.expandable-code {
+  margin-bottom: 1.3em;
+
+  pre {
+    overflow: hidden;
+    transition: max-height 120ms ease;
+    margin-bottom: 0.75em;
+  }
+}
+
+.expandable-code__actions {
+  text-align: center;
+}
