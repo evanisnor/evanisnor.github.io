@@ -165,6 +165,9 @@ The precise mechanism by which your agent can be configured may depend on which 
 * Skills
 * Sub-agents
 
+Check out my latest article on how to integrate Skills and Sub-agents into your coding agent workflow:
+> [Good Code Still Matters (2026)](./2026-02-26-good-code-still-matters.md)
+
 Combining these elements effectively will increase the quality of the agent output and improve the chances of producing functional software that actually solves someone's problem. For those who have years of industry experience you have probably already developed standards and preferences that translate well here.
 
 I'd like to elaborate on my thoughts with regard to the above, but this article is already quite long. Perhaps I'll follow up with another post.
