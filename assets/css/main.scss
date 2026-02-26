@@ -26,3 +26,16 @@ pre, pre code {
 .expandable-code__actions {
   text-align: center;
 }
+
+.page__content table {
+  width: max-content;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page__content table th,
+.page__content table td {
+  text-align: left;
+  padding: 0.65em 1em;
+}
